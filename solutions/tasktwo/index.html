@@ -9,7 +9,7 @@
       <div class="section__inner">
         <p class="section__text section__text--center">
           This is the inner section which should be
-          <span class="section__text--pct">%</span>
+          <span class="section__text--pct" id="margin_size"></span>
           the width of the page with equal margins
           on either site to centralise the content
           contained within it, and also dynamically
@@ -19,4 +19,19 @@
       </div>
     </section>
   </body>
+  <script>
+    window.onload = function () {
+      let element = document.getElementsByClassName("section__outer");
+      let styles = getComputedStyle(element[0]);
+      let dest = document.getElementById("margin_size");
+      if(styles && dest){
+        console.log(styles);
+        console.log(styles.marginInline);
+        dest.innerHTML = styles.marginInline;
+        return 1;
+      } else {
+        return 0;
+      }
+    }
+  </script>
 </html>
